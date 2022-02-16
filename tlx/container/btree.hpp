@@ -1061,6 +1061,10 @@ public:
             return inner_nodes + leaves;
         }
 
+        size_type memory() const {
+            return inner_nodes * sizeof(InnerNode) + leaves * sizeof(LeafNode);
+        }
+
         //! Return the average fill of leaves
         double avgfill_leaves() const {
             return static_cast<double>(size) / (leaves * leaf_slots);
